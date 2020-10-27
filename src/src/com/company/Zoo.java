@@ -64,14 +64,14 @@ public class Zoo  {
         forHerbivores.addAnimal(kigKong);//Добавляем травоядных в клетку for Herbivores
         forHerbivores.addAnimal(sunUkun);//Добавляем травоядных в клетку for Herbivores
         forHerbivores.addAnimal(cezor);//Добавляем травоядных в клетку for Herbivores
-        forHerbivores.addAnimal(donald;//Добавляем травоядных в клетку for Herbivores
+        forHerbivores.addAnimal(donald);//Добавляем травоядных в клетку for Herbivores
         forHerbivores.addAnimal(tarzan);//Добавляем травоядных в клетку for Herbivores
         /*Проверка*/forHerbivores.addAnimal(vasya);//Пробуем занять пятое место (Вася, извини, мест нет)
         System.out.println();
 
         System.out.println("----------Обращение к в животным в клетках-------------------");
         //forHerbivores.getAnimal(cezor,2); // возможность обращения
-        forPredator.getAnimal(1); // возможность обращения
+        forPredator.getAnimal("Муфаса"); // возможность обращения
         System.out.println();
         System.out.println("----------Кормление зверя и мясом и травой-------------------");
         try {

@@ -1,13 +1,20 @@
 package src.com.company;
 
+import com.sun.javafx.collections.MappingChange;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Aviary {
     String name;
     protected int spase;
     protected boolean isPredator;
     private int i = 0;
-    public ArrayList arrAnimal = new ArrayList(spase);
+//    public ArrayList arrAnimal = new ArrayList(spase);
+      private Map<String,Animal> animalMap= new HashMap<>();
+
+
     public Aviary(String name, int spase, boolean isPredator) {
         if (spase > 1) { //Проверка корректности ввода
             this.name = name;
@@ -29,9 +36,9 @@ public class Aviary {
     public void addAnimal(Animal animal){
         if (i<spase) {
             if (isPredator == animal.predator) {
-                arrAnimal.add(animal);
+                animalMap.put(animal.name, animal);
                 System.out.print("В клетку добавлен " + animal.name);
-                System.out.println(". Он занимает " + arrAnimal.indexOf(animal) + " место");
+//                System.out.println(". Он занимает " + arrAnimal.indexOf(animal) + " место");
                 i++;
             } else {
                 System.out.println(animal.name+ " не может жить в этой клетке");
@@ -41,9 +48,9 @@ public class Aviary {
         }
     }
 
-    public Object getAnimal(int index ){
-        System.out.println(arrAnimal.get(index));
-        return arrAnimal.get(index);
+    public Object getAnimal(String name ){
+        System.out.println(animalMap.get(name));
+        return animalMap.get(name);
     }
 
 }
