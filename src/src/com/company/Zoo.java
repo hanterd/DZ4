@@ -2,7 +2,7 @@ package src.com.company;
 
 public class Zoo  {
 
-    public static void feedAnimal (Animal animal, int portion) throws EatException {
+    public static void feedAnimal (Animal animal, int portion) throws WorngFoodException {
         System.out.println(animal.name+" будет есть "+portion+" порциий");
         Banana[] bananas = new Banana[portion];
         Egg[] eggs = new Egg[portion];
@@ -28,7 +28,7 @@ public class Zoo  {
 
 
 
-    public static void main(String[] args) throws EatException {
+    public static void main(String[] args) throws WorngFoodException {
         /*--------------------Создание хищников----------------------*/
         Lion simba = new Lion("Симба",-15);
         Lion mufsa = new Lion("Муфаса",-40);
@@ -43,8 +43,8 @@ public class Zoo  {
         Monkey sunUkun = new Monkey("Сунь Укун",0);
         Duck donald = new Duck("Дональд", - 20 );
         System.out.println("------------Создание первой клетки-------------------------");
-        Aviary forPredator = new Aviary("кабинет №23",4,true);// Создаем клетку forPraedator
-        /*ПРОВЕРКА*/ Aviary error = new Aviary("errot",-1, false);
+        Aviary forPredator = new Aviary("кабинет №23",4,true, SizeAviary.BIG);// Создаем клетку forPraedator
+        /*ПРОВЕРКА*/ Aviary error = new Aviary("errot",-1, false,SizeAviary.BIG);
         System.out.println();
         System.out.println("----------Добавление зверей в клетку forPredator-------------------");
         forPredator.addAnimal(shram);// Добавляем хищников в клетку forPredator
@@ -56,7 +56,7 @@ public class Zoo  {
         System.out.println();
 
         System.out.println("------------Создание второй клетки-------------------------");
-        Aviary forHerbivores = new Aviary("кабинет №403",8,false);// Создаем клетку forHerbivores
+        Aviary forHerbivores = new Aviary("кабинет №403",8,false,SizeAviary.SMALL);// Создаем клетку forHerbivores
         System.out.println();
 
         System.out.println("----------Добавление зверей в созданную клетку forHerbivores-------------------");
@@ -76,12 +76,12 @@ public class Zoo  {
         System.out.println("----------Кормление зверя и мясом и травой-------------------");
         try {
         feedAnimal(chester,5);// перекормили Честора
-        }catch (EatException e){
+        }catch (WorngFoodException e){
             System.err.println(e.getMessage());
         }
         try {
         feedAnimal(tarzan,19);// недокормили Тарзана
-        }catch( EatException e){
+        }catch( WorngFoodException e){
             System.err.println(e.getMessage());
         }
 

@@ -6,9 +6,14 @@ public abstract class Animal implements ForAnimal {
     protected int hungry;
     protected String name;
     protected boolean predator;
+    private SizeAviary size;
 
-    public abstract void eat(Meat meat) throws EatException;
-    public abstract void eat(Grass grass) throws EatException;
+    public SizeAviary getSize() {
+        return size;
+    }
+
+    public abstract void eat(Meat meat) throws WorngFoodException;
+    public abstract void eat(Grass grass) throws WorngFoodException;
 
     @Override
     public String toString() {
@@ -23,9 +28,11 @@ public abstract class Animal implements ForAnimal {
         return hungry;
     }
 
-    protected Animal(String name, int hungry){
+    protected Animal(String name, int hungry, SizeAviary size){
         this.name = name;
         this.hungry = hungry;
+        this.size = size;
+
     }
 
     @Override

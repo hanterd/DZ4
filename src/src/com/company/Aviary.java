@@ -11,16 +11,18 @@ public class Aviary {
     protected int spase;
     protected boolean isPredator;
     private int i = 0;
-//    public ArrayList arrAnimal = new ArrayList(spase);
+    private SizeAviary size;
+
+
       private Map<String,Animal> animalMap= new HashMap<>();
 
-
-    public Aviary(String name, int spase, boolean isPredator) {
+        public Aviary(String name, int spase, boolean isPredator,SizeAviary size) {
         if (spase > 1) { //Проверка корректности ввода
             this.name = name;
             this.spase = spase;
             this.isPredator = isPredator;
-            System.out.print("Создана клетка "+name+" размером " + spase);
+            this.size = size;
+            System.out.print("Создана клетка " + name + " размером " + spase);
 
             if (isPredator) {
                 System.out.println(" для хищников");
@@ -35,7 +37,7 @@ public class Aviary {
 
     public void addAnimal(Animal animal){
         if (i<spase) {
-            if (isPredator == animal.predator) {
+            if (isPredator == animal.predator && size == animal.getSize()) {
                 animalMap.put(animal.name, animal);
                 System.out.print("В клетку добавлен " + animal.name);
 //                System.out.println(". Он занимает " + arrAnimal.indexOf(animal) + " место");
@@ -54,6 +56,7 @@ public class Aviary {
     }
 
 }
+
 
 
 

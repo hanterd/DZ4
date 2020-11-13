@@ -5,9 +5,9 @@ public abstract class Carnivourse extends Animal {
         predator = true;
     }
 
-    public Carnivourse(String name, int hungry) {
+    public Carnivourse(String name, int hungry,SizeAviary size) {
 
-        super(name, hungry);
+        super(name, hungry,size);
     }
 
     @Override
@@ -20,9 +20,9 @@ public abstract class Carnivourse extends Animal {
     }
 
     @Override
-    public void eat(Grass grass) throws EatException {
+    public void eat(Grass grass) throws WorngFoodException {
 
-        throw new EatException("Хищник не будет это есть");
+        throw new WorngFoodException("Хищник не будет это есть");
     }
 
 

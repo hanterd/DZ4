@@ -6,14 +6,14 @@ public abstract class Herbivores extends Animal {
     }
 
 
-    public Herbivores(String name, int hungry) {
-        super(name, hungry);
+    public Herbivores(String name, int hungry, SizeAviary size) {
+        super(name, hungry, size);
     }
 
     @Override
-    public void eat(Meat meat) throws EatException {
+    public void eat(Meat meat) throws WorngFoodException {
 
-        throw new EatException("Травоядный не будет это есть");
+        throw new WorngFoodException("Травоядный не будет это есть");
     }
 
     @Override
